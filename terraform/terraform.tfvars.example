@@ -1,0 +1,16 @@
+# AWS Configuration
+aws_region = "us-east-1"
+
+# Project Configuration
+project_name = "unifor-nginx"
+
+# Network Configuration
+vpc_cidr           = "10.0.0.0/16"
+public_subnet_cidr = "10.0.1.0/24"
+
+# EC2 Configuration
+instance_type = "t3.micro"
+
+# SSH Keys (Update these paths with your actual key locations)
+public_key_path  = "../keys/aws-key.pub"
+private_key_path = "../keys/aws-key"

@@ -1,0 +1,39 @@
+---
+- name: Configure Nginx Web Server
+  hosts: webserver
+  become: true
+
+  tasks:
+    - name: Upgrade all packages
+      apt:
+        upgrade: dist
+        update_cache: yes
+
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start Nginx
+      systemd:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Deploy HTML file
+      copy:
+        src: ../web/index.html
+        dest: /var/www/html/index.html
+        mode: "0644"
+
+    - name: Deploy CSS file
+      copy:
+        src: ../web/styles.css
+        dest: /var/www/html/styles.css
+        mode: "0644"
+
+    - name: Deploy icons directory
+      copy:
+        src: ../web/icons/
+        dest: /var/www/html/icons/
+        mode: "0644"
