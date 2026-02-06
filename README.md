@@ -200,16 +200,6 @@ terraform destroy
 
 Digite `yes` quando solicitado para confirmar a destruição dos recursos.
 
-## Custos AWS
-
-Este projeto utiliza recursos da camada gratuita da AWS (Free Tier):
-
-- **EC2 t3.micro**: 750 horas/mês (Free Tier)
-- **VPC, Subnet, Internet Gateway**: Sem custo
-- **Transferência de dados**: Primeiros 100GB/mês gratuitos
-
-**Importante**: Lembre-se de destruir os recursos após os testes para evitar cobranças inesperadas.
-
 ## Referências
 
 - [Terraform Documentation](https://www.terraform.io/docs)
