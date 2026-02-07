@@ -23,7 +23,7 @@ O objetivo é demonstrar a automação completa de infraestrutura utilizando **I
 | **Ansible** | >= 2.9 | Gerenciamento de configuração |
 | **AWS** | - | Provedor de cloud |
 | **Nginx** | Latest | Servidor web |
-| **Ubuntu** | 22.04 LTS | Sistema operacional |
+| **Ubuntu Server** | 22.04 LTS | Sistema operacional |
 
 ## Estrutura do Projeto
 
