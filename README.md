@@ -68,14 +68,22 @@ terraform validate
 terraform plan
 terraform apply
 
-# 5. Configure o servidor (edite inventory.ini com o IP da instância)
+# 5. (Opcional) Obtenha os outputs do Terraform
+terraform output instance_public_ip  # Use este IP para atualizar o inventory.ini
+terraform output web_url             # Use esta URL para acessar a aplicação
+
+# 6. Atualize o inventory.ini do Ansible com o IP da instância
+# (use o IP do output do terraform apply ou obtenha com os comandos do passo 5)
 cd ../ansible/
+
+# 7. Configure o servidor com Ansible
 ansible-playbook playbook.yml
 
-# 6. Acesse a aplicação (obtenha a URL com: terraform output web_url)
+# 8. Acesse a aplicação
+# (use a URL do output do terraform apply ou obtenha com os comandos do passo 5)
 # http://<instance-public-ip>
 
-# 7. Destrua a infraestrutura quando terminar
+# 9. Destrua a infraestrutura quando terminar (volte para o diretório terraform)
 cd ../terraform/
 terraform destroy
 ```
