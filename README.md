@@ -65,6 +65,7 @@ mkdir -p keys && ssh-keygen -t rsa -b 4096 -f keys/aws-key -N ""
 cd terraform/
 terraform init
 terraform validate
+terraform plan
 terraform apply
 
 # 5. Configure o servidor (edite inventory.ini com o IP da instância)
