@@ -44,9 +44,40 @@ unifor-automated-infrastructure/
 
 ## Documentação
 
-- **[Code Explanation](docs/EXPLANATION.md)** - Explicação detalhada de cada arquivo
 - **[Setup Guide](docs/SETUP.md)** - Pré-requisitos e configuração inicial
 - **[Step-by-Step Tutorial](docs/STEP_BY_STEP.md)** - Tutorial completo com screenshots
+- **[Code Explanation](docs/EXPLANATION.md)** - Explicação detalhada de cada arquivo
+
+## Quick Start
+
+```bash
+# 1. Clone o repositório
+git clone https://github.com/victorkauan/unifor-automated-infrastructure
+cd unifor-automated-infrastructure
+
+# 2. Configure suas credenciais AWS
+aws configure
+
+# 3. Gere as chaves SSH
+mkdir -p keys && ssh-keygen -t rsa -b 4096 -f keys/aws-key -N ""
+
+# 4. Provisione a infraestrutura
+cd terraform/
+terraform init
+terraform validate
+terraform apply
+
+# 5. Configure o servidor (edite inventory.ini com o IP da instância)
+cd ../ansible/
+ansible-playbook playbook.yml
+
+# 6. Acesse a aplicação (obtenha a URL com: terraform output web_url)
+# http://<instance-public-ip>
+
+# 7. Destrua a infraestrutura quando terminar
+cd ../terraform/
+terraform destroy
+```
 
 ## Recursos Úteis
 
